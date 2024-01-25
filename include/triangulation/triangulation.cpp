@@ -877,15 +877,15 @@ namespace triangulation{
 
     bool triangulator::IsDetected(const vertex &v){
         object v_o = GetObjectPosition(v);
-        int object_idx = 1;
+        // int object_idx = 1;
         cout<<"----------number of detected object:"<<objectposes.size()<<"----------"<<endl;
         if (objectposes.size()!=0){
             for(object o:objectposes){
                 if(sqrt(pow((v_o.x-o.x), 2)/pow(o.xsize*1.5, 2) + pow((v_o.y-o.y), 2)/pow(o.ysize*1.5, 2) 
-                                    + pow((v_o.z-o.z), 2)/pow(o.zsize*1.5,2)) <= 1.0 ){
+                                    + pow((v_o.z-o.z), 2)/pow(o.zsize*1.5,2)) <= 1.0 && v_o.label == o.label){
                                         return true;
                                     }
-                object_idx+=1;
+                // object_idx+=1;
             }
         }
         
